@@ -7,9 +7,13 @@
 ## Common
 
 	struct device * device_find ( char *name );
+	int device_dump ( struct device *dev );
+	
+	int device_signal ( uint32_t event ); // callabck
+	
 	int device_configure ( struct device *dev, void *param ); // not suggested
+	
 	int device_power_control ( struct device *dev, enum power_status);
-	int device_signal ( uint32_t event );
 
 ## SPI
 

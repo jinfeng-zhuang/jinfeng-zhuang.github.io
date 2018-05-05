@@ -1,42 +1,34 @@
-<html>
-<head>
+# PEDI
 
-<style>
-.title {
-    text-align: center;
-}
-.nav ul {
-    margin: 0 auto;
-}
-.nav li {
-    border: 1px solid grey;
-    font-size: 16pt;
-    text-align: center;
-    list-style-type: none;
-    float: left;
-    margin-left: 10px;
-}
-</style>
+* the device instance is static configured, initialised at startup time
+* keep static, keep device configured by arch
+* if the function will not block and need no parameter, it's return type could be void
 
-</head>
-<body>
-<h1 class="title">
-    Debug IPs
-</h1>
+## Common
 
-<div class="nav">
-<ul>
-    <li>UART</li>
-    <li>SPI</li>
-    <li>DMA</li>
-    <li>I2C</li>
-    <li>CAN</li>
-    <li>PCIe</li>
-    <li>Cortex-M3</li>
-    <li>Cortex-A9</li>
-    <li>x86</li>
-</ul>
-</div>
+	struct device * device_find ( char *name );
+	int device_configure ( struct device *dev, void *param ); // not suggested
+	int device_power_control ( struct device *dev, enum power_status);
+	int device_signal ( uint32_t event );
 
-</body>
-</html>
+## SPI
+
+	int spi_transfer ( struct device *dev, char *txbuf, char *rxbuf, int length );
+
+## I2C
+
+	int i2c_transfer ( struct device *dev, struct i2c_msg *msg );
+
+## UART
+
+	int uart_send ( struct device *dev, char *buffer, int length );
+	int uart_receive ( struct device *dev, char *buffer, int length );
+
+## Timer
+
+	int timer_set_interval ( struct device *dev, int us );
+
+## Reference
+
+* CMSIS Driver
+* Zephyr Driver API

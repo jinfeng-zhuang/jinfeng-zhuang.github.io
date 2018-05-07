@@ -1,4 +1,11 @@
-# ZStack Workspace
+# ZStack
+
+## Overview
+
+* The dependency has completed now
+* The packages are platform
+* The object files are located in packages, avoid some name conflict
+* The workspaces can be distinguished by package which we work on
 
 ## Directory
 
@@ -12,6 +19,7 @@
 			README.txt
 			Makefile
 			start.S
+			start.o
 		libc/
 		...
 

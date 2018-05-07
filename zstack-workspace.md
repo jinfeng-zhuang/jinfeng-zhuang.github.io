@@ -20,8 +20,14 @@
 
 ## Root Makefile
 
+	CC = gcc
+	LD = ld
+	
+	CFLAGS = -g ... // options should be top-level
+	LDFLAGS = -T ...
+
 	zstack: lib<package>.a ...
-		$(LD) -T board.lds ... $@ $^
+		$(LD) $(LDFLAGS) $@ $^
 
 ## Package Makefile
 

@@ -15,12 +15,14 @@
 			README.txt
 			debug.sh
 			board.lds
-		x86-core/
+			memory_map.h
+			irq_map.h
+		core-x86/
 			README.txt
 			Makefile
 			start.S
 			start.o
-		libc/
+		lib-c/
 		...
 
 * Board Package: memory layout and symbol layout

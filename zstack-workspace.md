@@ -7,5 +7,6 @@
 	x86-core/
 	libc/
 	...
-	
-The packages support ONLY symbols, include some special ones, like start, which MUST be supported by arch-core package, and required by board package.
+
+* Board Package: memory layout and symbol layout
+* Other Package: symbols set

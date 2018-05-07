@@ -45,3 +45,7 @@
 	%.o: %.c
 		$(CC) $(CFLAGS) $@ $<
 	
+## Dependency
+
+	DEPEND-ON: x86-core
+	

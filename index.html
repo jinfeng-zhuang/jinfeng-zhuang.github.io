@@ -16,11 +16,9 @@
       text-decoration: none;
       color: #DC143C;
     }
-    table {
-			border-collapse:collapse;
-    }
-    tr {
-      border-bottom: solid grey 1px;
+    td {
+    	color:white;
+    	background-color:rgb(81, 130, 187);
     }
   </style>
 </head>
@@ -39,7 +37,7 @@
 <h3>INTRO</h3>
 
 <p>
-大学期间受《Linux内核完全注释》影响很深，直到现在仍围绕OS进行开发工作。
+大学期间受《Linux内核完全注释》影响很深，直到现在仍围绕OS进行开发工作。毕业设计却是人脸识别。
 </p>
 
 <p>
@@ -78,25 +76,73 @@
 
 <p>
 <a href="http://www.intel.com/">INTEL</a>
-节奏不快，目前为止参与三个项目，部门多，周期长。还有足够的时间自学。
+节奏不快，目前为止参与三个项目，部门多，周期长。
 掌握了x86/RISCV/ARC等架构，Pre-Silicon的调试方法，对芯片的生产有了更加清晰的认知。
 跨国跨部门的代码Review对代码审核周期和质量影响很大。
 </p>
 
 <p>
-我尝试从下面几个方向进行突破：
-
+工作之外，总结对嵌入式软件的理解和经验，采用平坦的软件包管理方式，形成了
+<a href="https://github.com/jinfeng-zhuang/zstack">ZSTACK(Github)</a>
+，主要包含：
 <ul>
-	<li>整理对嵌入式系统的理解，形成了ZSTACK，以后保持PORTING工作，或许会有很多人认同它</li>
-	<li>学习AI算法，不纠结人与机器，是因为它们需要分布式计算，加速计算，这一块我可以做，小象学院的课程值得推荐</li>
-	<li>学习FPGA，意外遇到RISCV和蜂鸟处理器，读完书和源码，买了ARTY-7开发板，准备从RISCV协处理器突破</li>
-	<li>基于显卡和FPGA，深入基于几十个核心的OS开发</li>
+	<li>x86，RISCV，ARMv7M等架构的支持包</li>
+	<li>一个静态的RTOS，已移植到以上架构</li>
+	<li>一个简单的C库</li>
+	<li>一些Synopsis DesignWare，Intel，TI，ST的IP驱动</li>
 </ul>
+
+</p>
+
+<p>
+ZSTACK代表的是过去，一个通用的，传统的嵌入式系统架构。我尝试向专用的，多核心的 Matrix 架构突破，即去除传统CPU，将传统的OS上运行的各个软件模块实现成分布式的硬件IP：
+
+<table>
+<tr>
+	<td>Matrix System</td>
+	<td>有一些ASIC节点，一些FPGA节点，每套指令集，能力不一样，要处理不同类型的数据，可以切换指令集，指令集多样化是必然的</td>
+</tr>
+<tr>
+	<td>Matrix BUS</td>
+	<td>高速片上总线，内置标准的任务和数据收发单元，连接各个IP节点</td>
+</tr>
+<tr>
+	<td>工作节点</td>
+	<td>采用专用指令集，只干一件事情，所以不需要OS，但是可以接收新的任务，甚至在必要的时候加载新的bitstream，切换到另一个指令集，不会立即响应中断，等事情处理完成</td>
+</tr>
+<tr>
+	<td>管理节点</td>
+	<td>用于发布任务和均衡所有节点的负载</td>
+</tr>
+<tr>
+	<td>传统节点</td>
+	<td>可以有一个节点是x86或者ARM的，跑Linux，给用户提供传统的服务</td>
+</tr>
+<tr>
+	<td>智能节点</td>
+	<td>在不影响性能的前提下增加AI节点，让系统更加智能</td>
+</tr>
+</table>
+
+</p>
+
+<p>
+第一步选择了视频处理方向，我编写了一个
+<a href="https://github.com/jinfeng-zhuang/VC/tree/master/JPEG/jpeg_to_bmp">JPEG解码器(Github)</a>，视频文件的帧内编码原理与此相同。
+后面会逐渐在ZSTACK中加入DSP IP系列的支持。
+</p>
+
+<p>
+第二步是FPGA方向，购买Xlinx ARTY-7开发板，为RISCV处理器添加多种多样的协处理器（比如用Verilog编写静态OS）。同时学习CUDA开发，为Matrix OS做铺垫。
+</p>
+
+<p>
+第三步是学习AI技术（小象学院的课程很不坏），在这种多核架构下，AI芯片将会非常多样化，并且应用广泛。
 </p>
 
 <!--**********************************************************************-->
 <hr>
-<h3>Open Source Projects</h3>
+<h3>GITHUB</h3>
 
 <h4>ZSTACK</h4>
 

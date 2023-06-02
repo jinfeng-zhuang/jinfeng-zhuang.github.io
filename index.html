@@ -7,9 +7,9 @@
     body {
       color: black;
       width: 60em;
-      font-family: Courier New;
+      font-family: Consolas;
     }
-    h1, h2, h3, h4 {
+    h1 {
     	font-family: segoe print;
     }
     a {
@@ -26,6 +26,10 @@
 <body>
 <h1>Jinfeng</h1>
 
+<p>
+之前做嵌入式开发，现在从事视频编解码工作。
+</p>
+
 <hr>
 
 <p>
@@ -34,68 +38,12 @@
 
 <!--**********************************************************************-->
 <hr>
-<h3>INTRO</h3>
 
-<p>
-大学期间受《Linux内核完全注释》影响很深，目前从事嵌入式开发。
-</p>
+<h2>一刻</h2>
 
-<p>
-最初工作在IoT领域，
-能根据 WiFi 链路层报文分析网络状况，对 BLE 有一定了解，
-在 STM32 上做过
-<a href="http://www.gizwits.com/">机智云</a>
-和
-<a href="http://devsmart.jd.com/dev/index">京东智能云</a>
-的客户端。
-</p>
+一个番茄钟软件，以一刻钟为单位。每隔一刻钟，弹出来，用户选择要做的事情后，隐藏起来。会计数用户在某个事情上投入的时间片。
 
-<p>
-在此期间研究FREERTOS，编写了分析工具，分析Exception时所有线程的调用栈。
-</p>
-
-<p>
-后来为国产操作系统Reworks做移植工作，
-移植对象包括TI的DM3730，NXP的IMX系列，XILINX的ZYNQ系列，
-主要是CORTEX-A9 Multicore，熟悉它的核心IP如MMU,CACHE,核间通信，GIC等。
-在开发过程中，掌握vxWorks和Linux的驱动调试方法。
-</p>
-
-<p>
-工作之外，总结对嵌入式软件的理解和经验，编写了
-<a href="https://github.com/jinfeng-zhuang/zstack">ZSTACK</a>
-，主要包含：
-<ul>
-	<li>x86，RISCV，ARMv7M等架构的支持包</li>
-	<li>一个静态的RTOS，已移植到以上架构</li>
-	<li>一个简单的C库</li>
-	<li>一些Synopsis DesignWare，Intel，TI，ST的IP驱动</li>
-</ul>
-</p>
-
-<p>
-目前从事视频编解码工作。
-</p>
-
-<h3> 以后 </h3>
-
-
-<h4> 数据处理 </h4>
-
-<ul>
-<li> 视频处理方向，我编写了一个
-<a href="https://github.com/jinfeng-zhuang/VC/tree/master/JPEG/jpeg_to_bmp">JPEG解码器(Github)</a>，视频文件的帧内编码原理与此类似</li>
-<li>AI技术</li>
-
-</ul>
-
-<h4> 框架 </h4>
-
-<ul>
-	<li>ZStack</li>
-	<li>PCB</li>
-	<li>FPGA方向，购买Xlinx ARTY-7开发板，尝试实现一个简单的 CPU</li>
-</ul>
+<img src="一刻.png"/>
 
 </body>
 
